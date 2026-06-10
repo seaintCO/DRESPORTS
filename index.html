@@ -1,0 +1,178 @@
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dre Sports Co. | Elite Soccer Training</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+        }
+
+        /* Subtle grid background for texture */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* Custom minimal scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+    </style>
+</head>
+<body class="text-neutral-50 antialiased selection:bg-neutral-800 selection:text-white flex flex-col min-h-screen relative overflow-x-hidden">
+
+    <!-- Background effects -->
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-neutral-800/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 w-full border-b border-neutral-900 bg-[#0a0a0a]/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="text-sm font-medium tracking-[0.2em] text-neutral-200 hover:text-white transition-colors duration-300">
+                DRE SPORTS CO
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="#experience" class="text-xs text-neutral-400 hover:text-white transition-colors hidden sm:block">Experience</a>
+                <a href="https://calendly.com/andre-moriel11/1-1-soccer-training" target="_blank" rel="noopener noreferrer" class="text-xs font-medium bg-white text-black px-4 py-2 rounded-full hover:bg-neutral-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                    Book Session
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow z-10 relative">
+        
+        <!-- Hero Section -->
+        <section class="pt-32 pb-24 px-6 md:pt-48 md:pb-32 flex flex-col items-center justify-center text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/50 text-xs text-neutral-300 mb-8 backdrop-blur-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                Accepting new athletes
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-medium tracking-tighter text-white max-w-4xl mx-auto leading-[1.1]">
+                Master the game with <br class="hidden md:block text-neutral-500">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 to-neutral-500">elite training.</span>
+            </h1>
+            
+            <p class="mt-8 text-base md:text-lg text-neutral-400 max-w-2xl mx-auto font-light leading-relaxed">
+                Elevate your technical ability, tactical awareness, and physical conditioning with Andre Moriel. Professional-grade 1-on-1 coaching tailored for players serious about their development.
+            </p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row items-center gap-4">
+                <a href="https://calendly.com/andre-moriel11/1-1-soccer-training" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-sm font-medium bg-white text-black px-8 py-3.5 rounded-full hover:bg-neutral-200 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2">
+                    Schedule 1-on-1 Training
+                    <iconify-icon icon="solar:arrow-right-linear" width="16" stroke-width="1.5"></iconify-icon>
+                </a>
+                <a href="#experience" class="w-full sm:w-auto text-sm font-medium text-neutral-300 px-8 py-3.5 rounded-full border border-neutral-800 hover:bg-neutral-900 transition-colors flex items-center justify-center">
+                    View Credentials
+                </a>
+            </div>
+        </section>
+
+        <!-- Experience Grid Section -->
+        <section id="experience" class="py-24 px-6 border-t border-neutral-900 bg-[#0a0a0a]">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16 md:flex md:items-end md:justify-between gap-8">
+                    <div class="max-w-xl">
+                        <h2 class="text-3xl font-medium tracking-tight text-white mb-4">The Standard of Excellence</h2>
+                        <p class="text-sm text-neutral-400 font-light leading-relaxed">
+                            Training methodologies forged through over a decade of high-level competition across the globe. You aren't just practicing; you are preparing for the next level.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Card 1 -->
+                    <div class="p-8 rounded-2xl border border-neutral-800/50 bg-neutral-900/20 backdrop-blur-sm hover:bg-neutral-900/40 hover:border-neutral-700 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-full bg-neutral-800/50 flex items-center justify-center mb-6 text-neutral-300 group-hover:text-white group-hover:bg-neutral-800 transition-colors">
+                            <iconify-icon icon="solar:history-linear" width="24" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <h3 class="text-lg font-medium tracking-tight text-white mb-2">15 Years Experience</h3>
+                        <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                            A lifetime dedicated to the sport, translating decades of on-field scenarios into actionable insights for modern player development.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="p-8 rounded-2xl border border-neutral-800/50 bg-neutral-900/20 backdrop-blur-sm hover:bg-neutral-900/40 hover:border-neutral-700 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-full bg-neutral-800/50 flex items-center justify-center mb-6 text-neutral-300 group-hover:text-white group-hover:bg-neutral-800 transition-colors">
+                            <iconify-icon icon="solar:cup-star-linear" width="24" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <h3 class="text-lg font-medium tracking-tight text-white mb-2">NCAA Background</h3>
+                        <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                            Proven track record at the collegiate level. Understanding the exact physical, mental, and technical demands required to succeed in NCAA programs.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="p-8 rounded-2xl border border-neutral-800/50 bg-neutral-900/20 backdrop-blur-sm hover:bg-neutral-900/40 hover:border-neutral-700 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-full bg-neutral-800/50 flex items-center justify-center mb-6 text-neutral-300 group-hover:text-white group-hover:bg-neutral-800 transition-colors">
+                            <iconify-icon icon="solar:earth-linear" width="24" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <h3 class="text-lg font-medium tracking-tight text-white mb-2">Global Perspective</h3>
+                        <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                            Having played in 4 different countries, training incorporates diverse tactical philosophies and playing styles from around the world.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Direct Booking CTA Section -->
+        <section class="py-24 px-6 border-t border-neutral-900 relative overflow-hidden">
+            <!-- Subtle gradient for this specific section -->
+            <div class="absolute inset-0 bg-gradient-to-b from-neutral-900/20 to-transparent pointer-events-none"></div>
+            
+            <div class="max-w-4xl mx-auto bg-neutral-900/30 border border-neutral-800 rounded-3xl p-8 md:p-16 text-center backdrop-blur-md relative z-10">
+                <div class="w-16 h-16 rounded-full bg-neutral-800 flex items-center justify-center mx-auto mb-6 text-white border border-neutral-700 shadow-inner">
+                    <iconify-icon icon="solar:calendar-date-linear" width="28" stroke-width="1.5"></iconify-icon>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white mb-4">Ready to put in the work?</h2>
+                <p class="text-sm text-neutral-400 font-light max-w-xl mx-auto mb-10">
+                    Secure your spot for a personalized 1-on-1 session. Select a time that works for you directly through my calendar.
+                </p>
+                <a href="https://calendly.com/andre-moriel11/1-1-soccer-training" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium bg-white text-black px-10 py-4 rounded-full hover:bg-neutral-200 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:-translate-y-0.5">
+                    Open Booking Calendar
+                    <iconify-icon icon="solar:maximize-square-minimalistic-linear" width="16" stroke-width="1.5"></iconify-icon>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-900 bg-[#0a0a0a] py-8 px-6 mt-auto">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-medium tracking-[0.2em] text-neutral-300">DRE SPORTS CO</span>
+                <span class="text-neutral-700">•</span>
+                <span class="text-xs text-neutral-500 font-light">Andre Moriel</span>
+            </div>
+            
+            <div class="text-xs text-neutral-600 font-light">
+                © 2024 Dre Sports Co. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>
