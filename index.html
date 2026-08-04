@@ -1,178 +1,690 @@
 <html lang="en" class="scroll-smooth"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dre Sports Co. | Elite Soccer Training</title>
+    <title>Moriel Performance | Transform Your Recovery</title>
+    <meta name="description" content="Enhance your physical conditioning and overall performance through a targeted framework of training, nutrition, and advanced recovery methods.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconify -->
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
-        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
+            background-color: #09090b; /* zinc-950 */
+            color: #d4d4d8; /* zinc-300 */
         }
-
-        /* Subtle grid background for texture */
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-        }
-
-        /* Custom minimal scrollbar */
+        
+        /* Hide scrollbar for a cleaner look but keep functionality */
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0a0a0a;
+            background: #09090b;
         }
         ::-webkit-scrollbar-thumb {
-            background: #262626;
-            border-radius: 3px;
+            background: #27272a;
+            border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #404040;
+            background: #3f3f46;
+        }
+
+        /* Custom Animations */
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Staggered delays */
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+
+        /* Custom details marker hide */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        /* Subtle glow effect */
+        .glow-accent {
+            position: relative;
+        }
+        .glow-accent::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            pointer-events: none;
         }
     </style>
 </head>
-<body class="text-neutral-50 antialiased selection:bg-neutral-800 selection:text-white flex flex-col min-h-screen relative overflow-x-hidden">
-
-    <!-- Background effects -->
-    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
-    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-neutral-800/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
+<body class="antialiased selection:bg-blue-500/30 selection:text-white">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 w-full border-b border-neutral-900 bg-[#0a0a0a]/80 backdrop-blur-md">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="text-sm font-medium tracking-[0.2em] text-neutral-200 hover:text-white transition-colors duration-300">
-                DRE SPORTS CO
+    <nav class="fixed w-full z-50 top-0 border-b border-zinc-900 bg-zinc-950/70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-semibold tracking-tighter text-white flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                MORIEL
             </a>
-            <div class="flex items-center gap-6">
-                <a href="#experience" class="text-xs text-neutral-400 hover:text-white transition-colors hidden sm:block">Experience</a>
-                <a href="https://calendly.com/andre-moriel11/1-1-soccer-training" target="_blank" rel="noopener noreferrer" class="text-xs font-medium bg-white text-black px-4 py-2 rounded-full hover:bg-neutral-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                    Book Session
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                <a href="#about" class="hover:text-white transition-colors duration-300">About</a>
+                <a href="#credentials" class="hover:text-white transition-colors duration-300">Credentials</a>
+                <a href="#services" class="hover:text-white transition-colors duration-300">Services</a>
+                <a href="#shop" class="hover:text-white transition-colors duration-300">Shop</a>
+                <a href="#faq" class="hover:text-white transition-colors duration-300">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://calendly.com/andre-moriel11/virtual-workout" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 px-5 py-2.5 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_25px_rgba(37,99,235,0.4)]">
+                    Book Consult
                 </a>
+                <button class="md:hidden text-white flex items-center justify-center">
+                    <iconify-icon icon="solar:hamburger-menu-linear" width="24" stroke-width="1.5"></iconify-icon>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="flex-grow z-10 relative">
-        
-        <!-- Hero Section -->
-        <section class="pt-32 pb-24 px-6 md:pt-48 md:pb-32 flex flex-col items-center justify-center text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/50 text-xs text-neutral-300 mb-8 backdrop-blur-sm">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                Accepting new athletes
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image & Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&amp;w=3269&amp;auto=format&amp;fit=crop" alt="Athlete training" class="w-full h-full object-cover object-center opacity-30 mix-blend-luminosity scale-105" style="animation: pulse 15s infinite alternate;">
+            <div class="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-zinc-950/80 to-zinc-950"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center animate-fade-in opacity-0">
+            <!-- Floating Stats (Desktop) -->
+            <div class="hidden lg:block">
+                <div class="absolute -top-12 -left-12 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium text-zinc-300 flex items-center gap-2 animate-[bounce_4s_infinite]">
+                    <iconify-icon icon="solar:graph-up-linear" width="16" class="text-blue-400"></iconify-icon>
+                    Performance
+                </div>
+                <div class="absolute top-32 -right-16 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium text-zinc-300 flex items-center gap-2 animate-[bounce_5s_infinite_reverse]">
+                    <iconify-icon icon="solar:heart-pulse-linear" width="16" class="text-blue-400"></iconify-icon>
+                    Recovery
+                </div>
+                <div class="absolute -bottom-16 left-12 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium text-zinc-300 flex items-center gap-2 animate-[bounce_6s_infinite]">
+                    <iconify-icon icon="solar:dumbbell-large-linear" width="16" class="text-blue-400"></iconify-icon>
+                    Strength
+                </div>
+                <div class="absolute -bottom-4 right-8 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2 rounded-full text-xs font-medium text-zinc-300 flex items-center gap-2 animate-[bounce_4.5s_infinite_reverse]">
+                    <iconify-icon icon="solar:apple-linear" width="16" class="text-blue-400"></iconify-icon>
+                    Nutrition
+                </div>
             </div>
-            
-            <h1 class="text-5xl md:text-7xl font-medium tracking-tighter text-white max-w-4xl mx-auto leading-[1.1]">
-                Master the game with <br class="hidden md:block text-neutral-500">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 to-neutral-500">elite training.</span>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[1.1] mb-6 drop-shadow-2xl">
+                Elevate Your Performance,<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-500">Transform Your Recovery.</span>
             </h1>
             
-            <p class="mt-8 text-base md:text-lg text-neutral-400 max-w-2xl mx-auto font-light leading-relaxed">
-                Elevate your technical ability, tactical awareness, and physical conditioning with Andre Moriel. Professional-grade 1-on-1 coaching tailored for players serious about their development.
+            <p class="max-w-2xl mx-auto text-base md:text-lg text-zinc-400 leading-relaxed mb-10 font-light">
+                Enhance your physical conditioning and overall performance through a targeted framework of training, nutrition, and advanced recovery methods designed to help you reach your highest goals.
             </p>
-            
-            <div class="mt-10 flex flex-col sm:flex-row items-center gap-4">
-                <a href="https://calendly.com/andre-moriel11/1-1-soccer-training" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-sm font-medium bg-white text-black px-8 py-3.5 rounded-full hover:bg-neutral-200 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2">
-                    Schedule 1-on-1 Training
-                    <iconify-icon icon="solar:arrow-right-linear" width="16" stroke-width="1.5"></iconify-icon>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://calendly.com/andre-moriel11/virtual-workout" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(37,99,235,0.3)]">
+                    Book Free Consultation
+                    <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
                 </a>
-                <a href="#experience" class="w-full sm:w-auto text-sm font-medium text-neutral-300 px-8 py-3.5 rounded-full border border-neutral-800 hover:bg-neutral-900 transition-colors flex items-center justify-center">
-                    View Credentials
+                <a href="#about" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-medium text-white bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-4 rounded-full transition-all duration-300 backdrop-blur-sm">
+                    Learn More
                 </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Grid Section -->
-        <section id="experience" class="py-24 px-6 border-t border-neutral-900 bg-[#0a0a0a]">
-            <div class="max-w-6xl mx-auto">
-                <div class="mb-16 md:flex md:items-end md:justify-between gap-8">
-                    <div class="max-w-xl">
-                        <h2 class="text-3xl font-medium tracking-tight text-white mb-4">The Standard of Excellence</h2>
-                        <p class="text-sm text-neutral-400 font-light leading-relaxed">
-                            Training methodologies forged through over a decade of high-level competition across the globe. You aren't just practicing; you are preparing for the next level.
+    <!-- About Section -->
+    <section id="about" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="animate-fade-in opacity-0 delay-100">
+                    <h2 class="text-xs font-semibold tracking-widest text-blue-500 uppercase mb-4">About Me</h2>
+                    <h3 class="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-8">Bridging the gap between clinical science and elite athletics.</h3>
+                    
+                    <div class="space-y-6 text-sm md:text-base text-zinc-400 leading-relaxed font-light">
+                        <p>
+                            I am a current doctoral student in physical therapy, aspiring to make an impact on the sports industry. My foundation is built upon degrees in Exercise Science and Biology, synthesized while competing at the collegiate level in varsity soccer and track &amp; field.
                         </p>
+                        <p>
+                            Having lived and trained across Mexico, America, Japan, and Spain, I bring a truly global perspective to athletic development, injury prevention, rehabilitation, and performance optimization.
+                        </p>
+                        <p>
+                            My approach isn't just about working harder; it's about utilizing evidence-based frameworks to build resilient, high-performing athletes capable of sustaining peak levels over time.
+                        </p>
+                    </div>
+
+                    <div class="mt-10">
+                        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&amp;w=3269&amp;auto=format&amp;fit=crop" alt="Signature" class="h-12 opacity-50 grayscale mix-blend-screen object-cover w-32 rounded-lg" style="object-position: 0% 50%;">
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- Card 1 -->
-                    <div class="p-8 rounded-2xl border border-neutral-800/50 bg-neutral-900/20 backdrop-blur-sm hover:bg-neutral-900/40 hover:border-neutral-700 transition-all duration-300 group">
-                        <div class="w-12 h-12 rounded-full bg-neutral-800/50 flex items-center justify-center mb-6 text-neutral-300 group-hover:text-white group-hover:bg-neutral-800 transition-colors">
-                            <iconify-icon icon="solar:history-linear" width="24" stroke-width="1.5"></iconify-icon>
+                <div class="relative animate-fade-in opacity-0 delay-200">
+                    <!-- Premium Glass Card Portrait container -->
+                    <div class="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/50 p-2 shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-50"></div>
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&amp;w=3270&amp;auto=format&amp;fit=crop" alt="Professional Portrait" class="w-full h-auto aspect-[4/5] object-cover rounded-xl filter grayscale contrast-125">
+                        
+                        <!-- Glass Info Badge -->
+                        <div class="absolute bottom-6 left-6 right-6 bg-zinc-950/60 backdrop-blur-md border border-white/10 rounded-xl p-4 flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-semibold text-white">Andre Moriel</p>
+                                <p class="text-xs text-zinc-400">DPT Candidate • Performance Coach</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                <iconify-icon icon="solar:medal-star-linear" class="text-blue-400" width="20"></iconify-icon>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-medium tracking-tight text-white mb-2">15 Years Experience</h3>
-                        <p class="text-xs text-neutral-400 font-light leading-relaxed">
-                            A lifetime dedicated to the sport, translating decades of on-field scenarios into actionable insights for modern player development.
-                        </p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="p-8 rounded-2xl border border-neutral-800/50 bg-neutral-900/20 backdrop-blur-sm hover:bg-neutral-900/40 hover:border-neutral-700 transition-all duration-300 group">
-                        <div class="w-12 h-12 rounded-full bg-neutral-800/50 flex items-center justify-center mb-6 text-neutral-300 group-hover:text-white group-hover:bg-neutral-800 transition-colors">
-                            <iconify-icon icon="solar:cup-star-linear" width="24" stroke-width="1.5"></iconify-icon>
-                        </div>
-                        <h3 class="text-lg font-medium tracking-tight text-white mb-2">NCAA Background</h3>
-                        <p class="text-xs text-neutral-400 font-light leading-relaxed">
-                            Proven track record at the collegiate level. Understanding the exact physical, mental, and technical demands required to succeed in NCAA programs.
-                        </p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="p-8 rounded-2xl border border-neutral-800/50 bg-neutral-900/20 backdrop-blur-sm hover:bg-neutral-900/40 hover:border-neutral-700 transition-all duration-300 group">
-                        <div class="w-12 h-12 rounded-full bg-neutral-800/50 flex items-center justify-center mb-6 text-neutral-300 group-hover:text-white group-hover:bg-neutral-800 transition-colors">
-                            <iconify-icon icon="solar:earth-linear" width="24" stroke-width="1.5"></iconify-icon>
-                        </div>
-                        <h3 class="text-lg font-medium tracking-tight text-white mb-2">Global Perspective</h3>
-                        <p class="text-xs text-neutral-400 font-light leading-relaxed">
-                            Having played in 4 different countries, training incorporates diverse tactical philosophies and playing styles from around the world.
-                        </p>
                     </div>
                 </div>
+                
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Direct Booking CTA Section -->
-        <section class="py-24 px-6 border-t border-neutral-900 relative overflow-hidden">
-            <!-- Subtle gradient for this specific section -->
-            <div class="absolute inset-0 bg-gradient-to-b from-neutral-900/20 to-transparent pointer-events-none"></div>
-            
-            <div class="max-w-4xl mx-auto bg-neutral-900/30 border border-neutral-800 rounded-3xl p-8 md:p-16 text-center backdrop-blur-md relative z-10">
-                <div class="w-16 h-16 rounded-full bg-neutral-800 flex items-center justify-center mx-auto mb-6 text-white border border-neutral-700 shadow-inner">
-                    <iconify-icon icon="solar:calendar-date-linear" width="28" stroke-width="1.5"></iconify-icon>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white mb-4">Ready to put in the work?</h2>
-                <p class="text-sm text-neutral-400 font-light max-w-xl mx-auto mb-10">
-                    Secure your spot for a personalized 1-on-1 session. Select a time that works for you directly through my calendar.
+    <!-- Credentials Section -->
+    <section id="credentials" class="py-24 border-t border-zinc-900 bg-zinc-950/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 animate-fade-in opacity-0">
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">The Standard of Excellence</h2>
+                <p class="text-sm md:text-base text-zinc-400 font-light">
+                    Blending cutting-edge physical therapy principles and nutrition science with proven athletic development. We don't just train—we optimize performance.
                 </p>
-                <a href="https://calendly.com/andre-moriel11/1-1-soccer-training" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium bg-white text-black px-10 py-4 rounded-full hover:bg-neutral-200 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:-translate-y-0.5">
-                    Open Booking Calendar
-                    <iconify-icon icon="solar:maximize-square-minimalistic-linear" width="16" stroke-width="1.5"></iconify-icon>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in opacity-0 delay-100">
+                <!-- Card 1 -->
+                <div class="group bg-zinc-900/30 border border-zinc-800 rounded-2xl p-8 hover:bg-zinc-800/50 hover:border-zinc-700 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <iconify-icon icon="solar:clock-circle-linear" width="64"></iconify-icon>
+                    </div>
+                    <div class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <iconify-icon icon="solar:stopwatch-linear" width="24" class="text-white"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">18 Years Experience</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed font-light">Translating decades of on-field experience into actionable insights for modern athlete development.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group bg-zinc-900/30 border border-zinc-800 rounded-2xl p-8 hover:bg-zinc-800/50 hover:border-zinc-700 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <iconify-icon icon="solar:cup-star-linear" width="64"></iconify-icon>
+                    </div>
+                    <div class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <iconify-icon icon="solar:shield-star-linear" width="24" class="text-white"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">NCAA Background</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed font-light">Understanding the physical, technical, and mental demands required to perform successfully within NCAA athletics.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-zinc-900/30 border border-zinc-800 rounded-2xl p-8 hover:bg-zinc-800/50 hover:border-zinc-700 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <iconify-icon icon="solar:global-linear" width="64"></iconify-icon>
+                    </div>
+                    <div class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <iconify-icon icon="solar:earth-linear" width="24" class="text-white"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">Global Perspective</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed font-light">Training philosophy shaped by experiences living and training across Mexico, America, Japan, and Spain.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group bg-zinc-900/30 border border-zinc-800 rounded-2xl p-8 hover:bg-zinc-800/50 hover:border-zinc-700 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <iconify-icon icon="solar:heart-angle-linear" width="64"></iconify-icon>
+                    </div>
+                    <div class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <iconify-icon icon="solar:health-linear" width="24" class="text-white"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">Health &amp; Nutrition</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed font-light">Built upon degrees in Exercise Science and Biology while integrating doctoral-level physical therapy principles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 animate-fade-in opacity-0">
+                <div class="max-w-xl">
+                    <h2 class="text-xs font-semibold tracking-widest text-blue-500 uppercase mb-4">Services</h2>
+                    <h3 class="text-3xl md:text-4xl font-semibold tracking-tight text-white">Comprehensive Systems for Elite Output.</h3>
+                </div>
+                <a href="https://calendly.com/andre-moriel11/virtual-workout" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-2 text-sm font-medium text-white hover:text-blue-400 transition-colors mt-6 md:mt-0">
+                    Book a Service <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
                 </a>
             </div>
-        </section>
 
-    </main>
+            <div class="grid md:grid-cols-2 gap-6 animate-fade-in opacity-0 delay-100">
+                <!-- Service 1 -->
+                <div class="group p-8 md:p-10 rounded-3xl bg-zinc-900/20 border border-zinc-800/50 hover:bg-zinc-900/60 transition-colors flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center flex-shrink-0 shadow-inner border border-zinc-700/50 group-hover:border-blue-500/30 transition-colors">
+                        <iconify-icon icon="solar:bolt-circle-linear" width="28" class="text-zinc-300 group-hover:text-blue-400 transition-colors"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-white mb-3 tracking-tight">Performance Training</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed font-light">Individualized athletic development programs designed to maximize strength, speed, endurance, and explosiveness tailored to your specific sport and positional demands.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group p-8 md:p-10 rounded-3xl bg-zinc-900/20 border border-zinc-800/50 hover:bg-zinc-900/60 transition-colors flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center flex-shrink-0 shadow-inner border border-zinc-700/50 group-hover:border-blue-500/30 transition-colors">
+                        <iconify-icon icon="solar:refresh-circle-linear" width="28" class="text-zinc-300 group-hover:text-blue-400 transition-colors"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-white mb-3 tracking-tight">Recovery Programs</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed font-light">Mobility, rehabilitation, injury prevention, and recovery protocols backed by evidence-based physical therapy to keep you on the field and performing at your peak.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group p-8 md:p-10 rounded-3xl bg-zinc-900/20 border border-zinc-800/50 hover:bg-zinc-900/60 transition-colors flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center flex-shrink-0 shadow-inner border border-zinc-700/50 group-hover:border-blue-500/30 transition-colors">
+                        <iconify-icon icon="solar:dropper-minimalistic-2-linear" width="28" class="text-zinc-300 group-hover:text-blue-400 transition-colors"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-white mb-3 tracking-tight">Nutrition Coaching</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed font-light">Personalized nutrition guidance to maximize recovery, body composition, and athletic performance, ensuring your fuel matches your output requirements.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="group p-8 md:p-10 rounded-3xl bg-zinc-900/20 border border-zinc-800/50 hover:bg-zinc-900/60 transition-colors flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center flex-shrink-0 shadow-inner border border-zinc-700/50 group-hover:border-blue-500/30 transition-colors">
+                        <iconify-icon icon="solar:laptop-linear" width="28" class="text-zinc-300 group-hover:text-blue-400 transition-colors"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-white mb-3 tracking-tight">Virtual Coaching</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed font-light">Remote coaching with personalized programming, video analysis, and ongoing accountability, delivering elite level coaching regardless of your geographical location.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="https://calendly.com/andre-moriel11/virtual-workout" target="_blank" rel="noopener noreferrer" class="md:hidden inline-flex items-center gap-2 text-sm font-medium text-white mt-8 hover:text-blue-400 transition-colors">
+                Book a Service <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+            </a>
+        </div>
+    </section>
+
+    <!-- Mission & Vision (Split) -->
+    <section class="py-24 border-y border-zinc-900 bg-zinc-950/30 overflow-hidden relative">
+        <!-- Decorative line -->
+        <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-zinc-800 to-transparent hidden md:block"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="grid md:grid-cols-2 gap-16 md:gap-24">
+                
+                <!-- Mission -->
+                <div class="animate-fade-in opacity-0 pr-0 md:pr-12">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                        <h3 class="text-xs font-semibold tracking-widest text-zinc-300 uppercase">Mission</h3>
+                    </div>
+                    <p class="text-xl md:text-2xl font-light text-white leading-relaxed mb-6 tracking-tight">
+                        To build an accessible sports platform that gives young athletes a clear and structured framework to reach their highest goals.
+                    </p>
+                    <p class="text-sm text-zinc-400 leading-relaxed font-light">
+                        By combining doctoral-level physical therapy principles with elite training, nutrition, and recovery, everyday athletes gain access to the same science used at the highest professional level.
+                    </p>
+                </div>
+
+                <!-- Vision -->
+                <div class="animate-fade-in opacity-0 delay-100 pl-0 md:pl-12">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <h3 class="text-xs font-semibold tracking-widest text-blue-500 uppercase">Vision</h3>
+                    </div>
+                    <p class="text-xl md:text-2xl font-light text-white leading-relaxed mb-6 tracking-tight">
+                        To revolutionize how the next generation of athletes approaches training, nutrition, and recovery.
+                    </p>
+                    <p class="text-sm text-zinc-400 leading-relaxed font-light">
+                        We are creating a new standard for high performance by proving that professional-level development should be accessible without requiring a professional budget. Science, applied perfectly.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking CTA Section -->
+    <section class="py-32 relative overflow-hidden flex items-center justify-center glow-accent">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&amp;w=3270&amp;auto=format&amp;fit=crop')] opacity-10 bg-cover bg-center mix-blend-luminosity"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/80 to-zinc-950"></div>
+        
+        <div class="relative z-10 text-center max-w-3xl mx-auto px-6 animate-fade-in opacity-0">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white mb-8">
+                Ready to Take Your Performance to the Next Level?
+            </h2>
+            <p class="text-base text-zinc-400 mb-10 font-light max-w-xl mx-auto">
+                Schedule a consultation to discuss your specific goals, injury history, and how we can construct a roadmap to your physical peak.
+            </p>
+            <a href="https://calendly.com/andre-moriel11/virtual-workout" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-base font-medium text-white bg-white text-zinc-950 hover:bg-zinc-200 px-10 py-5 rounded-full transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+                Book Your Free Consultation
+                <iconify-icon icon="solar:calendar-add-linear" width="20"></iconify-icon>
+            </a>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="py-24 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 animate-fade-in opacity-0">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2">Performance Shop</h2>
+                    <div class="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium tracking-wide uppercase">
+                        Coming Soon
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in opacity-0 delay-100">
+                
+                <!-- Product 1 -->
+                <div class="relative group rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/20 aspect-[4/3]">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&amp;w=3220&amp;auto=format&amp;fit=crop" alt="Recovery Guides" class="w-full h-full object-cover filter grayscale opacity-40">
+                    <div class="absolute inset-0 bg-zinc-950/60 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center transition-all duration-500">
+                        <iconify-icon icon="solar:book-bookmark-linear" width="32" class="text-zinc-500 mb-4"></iconify-icon>
+                        <h4 class="text-lg font-semibold text-white mb-1">Recovery Guides</h4>
+                        <p class="text-xs text-zinc-400 mb-6 font-light">Comprehensive protocols.</p>
+                        <button class="text-xs font-medium text-white bg-zinc-800/80 hover:bg-zinc-700 px-4 py-2 rounded-full transition-colors border border-zinc-700">
+                            Notify Me
+                        </button>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-zinc-950/80 px-2 py-1 rounded text-[10px] font-medium text-zinc-400 uppercase tracking-widest border border-zinc-800">
+                        Launching Soon
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="relative group rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/20 aspect-[4/3]">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&amp;w=3270&amp;auto=format&amp;fit=crop" alt="Training Programs" class="w-full h-full object-cover filter grayscale opacity-40">
+                    <div class="absolute inset-0 bg-zinc-950/60 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center transition-all duration-500">
+                        <iconify-icon icon="solar:dumbbell-linear" width="32" class="text-zinc-500 mb-4"></iconify-icon>
+                        <h4 class="text-lg font-semibold text-white mb-1">Training Programs</h4>
+                        <p class="text-xs text-zinc-400 mb-6 font-light">Periodized athlete development.</p>
+                        <button class="text-xs font-medium text-white bg-zinc-800/80 hover:bg-zinc-700 px-4 py-2 rounded-full transition-colors border border-zinc-700">
+                            Notify Me
+                        </button>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-zinc-950/80 px-2 py-1 rounded text-[10px] font-medium text-zinc-400 uppercase tracking-widest border border-zinc-800">
+                        Launching Soon
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="relative group rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/20 aspect-[4/3]">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&amp;w=3253&amp;auto=format&amp;fit=crop" alt="Nutrition Plans" class="w-full h-full object-cover filter grayscale opacity-40">
+                    <div class="absolute inset-0 bg-zinc-950/60 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center transition-all duration-500">
+                        <iconify-icon icon="solar:leaf-linear" width="32" class="text-zinc-500 mb-4"></iconify-icon>
+                        <h4 class="text-lg font-semibold text-white mb-1">Nutrition Plans</h4>
+                        <p class="text-xs text-zinc-400 mb-6 font-light">Fueling frameworks.</p>
+                        <button class="text-xs font-medium text-white bg-zinc-800/80 hover:bg-zinc-700 px-4 py-2 rounded-full transition-colors border border-zinc-700">
+                            Notify Me
+                        </button>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-zinc-950/80 px-2 py-1 rounded text-[10px] font-medium text-zinc-400 uppercase tracking-widest border border-zinc-800">
+                        Launching Soon
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Placeholder Section -->
+    <section class="py-24 bg-zinc-900/20 border-y border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 overflow-hidden">
+            <div class="text-center mb-16 animate-fade-in opacity-0">
+                <h2 class="text-xs font-semibold tracking-widest text-blue-500 uppercase mb-4">Athlete Success</h2>
+                <h3 class="text-3xl font-semibold tracking-tight text-white">Trusted by Performers.</h3>
+            </div>
+            
+            <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scroll">
+                <!-- Testimonial 1 -->
+                <div class="min-w-[300px] md:min-w-[400px] bg-zinc-950 border border-zinc-800 rounded-2xl p-8 snap-center flex-shrink-0">
+                    <div class="flex gap-1 mb-6 text-blue-500">
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                    </div>
+                    <p class="text-sm text-zinc-300 leading-relaxed font-light mb-6">"The analytical approach to my recovery completely shifted how I train. For the first time in years, I'm playing without chronic pain."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-medium text-zinc-400">JD</div>
+                        <div>
+                            <p class="text-sm font-medium text-white">NCAA Athlete</p>
+                            <p class="text-xs text-zinc-500">Division 1 Soccer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="min-w-[300px] md:min-w-[400px] bg-zinc-950 border border-zinc-800 rounded-2xl p-8 snap-center flex-shrink-0">
+                    <div class="flex gap-1 mb-6 text-blue-500">
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                    </div>
+                    <p class="text-sm text-zinc-300 leading-relaxed font-light mb-6">"Virtual coaching that actually feels personalized. The programming is meticulous, and the ongoing adjustments keep me accountable."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-medium text-zinc-400">MR</div>
+                        <div>
+                            <p class="text-sm font-medium text-white">Marathon Runner</p>
+                            <p class="text-xs text-zinc-500">Amateur Competitor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- Testimonial 3 -->
+                <div class="min-w-[300px] md:min-w-[400px] bg-zinc-950 border border-zinc-800 rounded-2xl p-8 snap-center flex-shrink-0">
+                    <div class="flex gap-1 mb-6 text-blue-500">
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" width="16"></iconify-icon>
+                    </div>
+                    <p class="text-sm text-zinc-300 leading-relaxed font-light mb-6">"Integrating clinical PT knowledge with raw strength training bridged the gap I was missing post-surgery. Exceptional standard of care."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-medium text-zinc-400">AL</div>
+                        <div>
+                            <p class="text-sm font-medium text-white">Track &amp; Field</p>
+                            <p class="text-xs text-zinc-500">Varsity Athlete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-semibold tracking-tight text-white mb-10 text-center">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4 animate-fade-in opacity-0">
+                
+                <details class="group bg-zinc-900/30 border border-zinc-800 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-sm text-white select-none">
+                        Who is this coaching for?
+                        <span class="transition group-open:rotate-180">
+                            <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-zinc-500"></iconify-icon>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-zinc-400 font-light leading-relaxed border-t border-zinc-800/50 pt-4">
+                        Coaching is designed for dedicated individuals—ranging from aspiring collegiate athletes to committed everyday performers—who are serious about optimizing their physical output, preventing injury, and adhering to science-based protocols.
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-900/30 border border-zinc-800 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-sm text-white select-none">
+                        Do I need access to a full gym?
+                        <span class="transition group-open:rotate-180">
+                            <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-zinc-500"></iconify-icon>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-zinc-400 font-light leading-relaxed border-t border-zinc-800/50 pt-4">
+                        While a full gym is ideal for maximizing certain strength adaptations, programs can be entirely customized to the equipment you currently have available, focusing heavily on biomechanics and intent over pure load.
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-900/30 border border-zinc-800 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-sm text-white select-none">
+                        Is online coaching as effective as in-person?
+                        <span class="transition group-open:rotate-180">
+                            <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-zinc-500"></iconify-icon>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-zinc-400 font-light leading-relaxed border-t border-zinc-800/50 pt-4">
+                        Yes. Through detailed video analysis, comprehensive tracking platforms, and regular communication, we maintain strict oversight of your form and progress, delivering a premium clinical-level experience remotely.
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-900/30 border border-zinc-800 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-sm text-white select-none">
+                        How do the virtual consultations work?
+                        <span class="transition group-open:rotate-180">
+                            <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-zinc-500"></iconify-icon>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-zinc-400 font-light leading-relaxed border-t border-zinc-800/50 pt-4">
+                        Consultations are conducted via secure video call. We discuss your athletic history, current limitations, nutritional habits, and specific goals to determine if our methodologies align and construct an initial roadmap.
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-900/30 border border-zinc-800 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-sm text-white select-none">
+                        How long are the programs?
+                        <span class="transition group-open:rotate-180">
+                            <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-zinc-500"></iconify-icon>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-zinc-400 font-light leading-relaxed border-t border-zinc-800/50 pt-4">
+                        Programs are typically structured in 12-week macrocycles to ensure adequate time for physiological adaptation, but coaching is delivered on a month-to-month continuous basis for long-term athletic development.
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-neutral-900 bg-[#0a0a0a] py-8 px-6 mt-auto">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-2">
-                <span class="text-xs font-medium tracking-[0.2em] text-neutral-300">DRE SPORTS CO</span>
-                <span class="text-neutral-700">•</span>
-                <span class="text-xs text-neutral-500 font-light">Andre Moriel</span>
+    <footer class="bg-zinc-950 border-t border-zinc-900 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 text-sm font-light">
+                
+                <div class="md:col-span-1">
+                    <a href="#" class="text-xl font-semibold tracking-tighter text-white flex items-center gap-2 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                        MORIEL
+                    </a>
+                    <p class="text-zinc-500 leading-relaxed text-xs">
+                        Elevating athletic performance through clinical science, targeted nutrition, and advanced recovery frameworks.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-medium mb-4 text-xs tracking-widest uppercase">Navigation</h5>
+                    <ul class="space-y-3 text-zinc-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#shop" class="hover:text-white transition-colors">Shop</a></li>
+                        <li><a href="https://calendly.com/andre-moriel11/virtual-workout" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Booking</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-medium mb-4 text-xs tracking-widest uppercase">Legal</h5>
+                    <ul class="space-y-3 text-zinc-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-medium mb-4 text-xs tracking-widest uppercase">Connect</h5>
+                    <div class="flex gap-4 text-zinc-400">
+                        <a href="#" aria-label="Instagram" class="hover:text-white transition-colors bg-zinc-900 p-2 rounded-lg border border-zinc-800 hover:border-zinc-700">
+                            <iconify-icon icon="solar:camera-linear" width="20"></iconify-icon>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="hover:text-white transition-colors bg-zinc-900 p-2 rounded-lg border border-zinc-800 hover:border-zinc-700">
+                            <iconify-icon icon="solar:link-circle-linear" width="20"></iconify-icon>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="hover:text-white transition-colors bg-zinc-900 p-2 rounded-lg border border-zinc-800 hover:border-zinc-700">
+                            <iconify-icon icon="solar:play-circle-linear" width="20"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-            
-            <div class="text-xs text-neutral-600 font-light">
-                © 2024 Dre Sports Co. All rights reserved.
+
+            <div class="border-t border-zinc-900/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-600">
+                <p>© 2026 Andre Moriel. All Rights Reserved.</p>
+                <p>Designed for Performance.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Intersection Observer for fade-in animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        // Keep opacity at 1 after animation finishes
+                        entry.target.addEventListener('animationend', () => {
+                            entry.target.classList.remove('opacity-0');
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Pause animations initially so they trigger on scroll
+            document.querySelectorAll('.animate-fade-in').forEach((el) => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        });
+    </script>
 
 </body></html>
